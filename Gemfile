@@ -11,6 +11,8 @@ gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'slim-rails'
+gem 'omniauth-spotify'
+gem 'omniauth-rails_csrf_protection'
 
 group :development, :test do
   gem 'byebug'

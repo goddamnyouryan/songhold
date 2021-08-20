@@ -1,1 +1,7 @@
 h1 Better Lib
+
+- if current_user
+  h2 = current_user.uid
+  = link_to "Log Out", signout_path
+- else
+  = button_to 'Connect Spotify Account', '/auth/spotify?show_dialog=true', method: :post
