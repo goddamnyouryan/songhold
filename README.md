@@ -1,24 +1,6 @@
-# README
+# Better Lib
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Links:
+https://rossta.net/blog/paginated-resources-in-ruby.html
+https://raw.githubusercontent.com/juicer-io/juicer/b231697abe39ac0af7f76c7bba4dc50806fa5e42/lib/social/spotify.rb?token=AAC4D47CPZYU755NP2XV6CDBFF75K
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
