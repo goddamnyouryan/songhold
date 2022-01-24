@@ -1,0 +1,7 @@
+h2 = @playlist['name']
+
+ul
+  - @tracks.each do |track|
+    li
+      h3 = track['name']
+      h4 = track['artists'].first['name']
