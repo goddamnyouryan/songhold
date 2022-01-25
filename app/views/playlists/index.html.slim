@@ -1,5 +1,4 @@
 h2 = current_user.uid
-= link_to 'Log Out', signout_path
 
 ul
   - @playlists.each do |playlist|
@@ -9,4 +8,5 @@ ul
         // - if image
         //   img src="#{image['url']}"
         = playlist['name']
+      = button_to 'Choose', playlists_path, method: :post, params: { uid: playlist['id'] }
       end

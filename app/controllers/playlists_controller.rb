@@ -5,12 +5,22 @@ class PlaylistsController < ApplicationController
     @playlists = interface_request('playlists')
   end
 
+  def create
+    @playlist = current_user.playlists.create playlist_params
+
+    redirect_to playlist_path(@playlist.uid)
+  end
+
   def show
     @playlist = interface_request('playlist', params[:id])
     @tracks = @playlist['tracks']['items'].map {|item| item['track']}
   end
 
   private
+
+  def playlist_params
+    params.permit(:uid)
+  end
 
   def interface_request(method, arg = nil)
     interface = Interface.new(current_user.token, current_user.refresh)

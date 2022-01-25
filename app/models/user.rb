@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   validates :uid, :token, :refresh, :expires_at, presence: true
 
+  has_many :playlists, dependent: :destroy
+
 
   def self.from_omniauth(params)
     user = find_or_initialize_by params.slice(:uid)
