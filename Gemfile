@@ -14,6 +14,7 @@ gem 'slim-rails'
 gem 'omniauth-spotify'
 gem 'omniauth-rails_csrf_protection'
 gem 'httparty'
+gem 'iso8601'
 
 group :development, :test do
   gem 'byebug'

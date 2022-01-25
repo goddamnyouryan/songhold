@@ -1,4 +1,5 @@
-# Better Lib
+# Songhold
+Pulls songs from spotify playlists and uploads them as hold music
 
 Links:
 https://rossta.net/blog/paginated-resources-in-ruby.html

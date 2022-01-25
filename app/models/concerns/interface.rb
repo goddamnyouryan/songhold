@@ -1,9 +1,8 @@
 class Interface
-  attr_accessor :token, :refresh
+  attr_accessor :user
 
-  def initialize(token, refresh)
-    @token = token
-    @refresh = refresh
+  def initialize(user)
+    @user = user
   end
 
   def playlists
@@ -16,6 +15,17 @@ class Interface
   end
 
   def get(uri, params = {})
+    spotify_request(uri, params)
+  rescue ExpiredToken
+    token = extend_token!
+    if token.present?
+      user.update token: token
+      user.reload
+      retry
+    end
+  end
+
+  def spotify_request(uri, params = {})
     response = HTTParty.get("https://api.spotify.com/v1/#{uri}", headers: headers, query: params)
     if response.code == 401
       fail ExpiredToken
@@ -26,7 +36,7 @@ class Interface
 
   def headers
     {
-      "Authorization" => "Bearer " + token
+      "Authorization" => "Bearer " + user.token
     }
   end
 
@@ -40,7 +50,7 @@ class Interface
     {
       body: {
 	grant_type: 'refresh_token',
-	refresh_token: refresh
+	refresh_token: user.refresh
       },
       headers: { 'Authorization' => "Basic #{auth}" }
     }

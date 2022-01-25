@@ -97,6 +97,7 @@ GEM
       multi_xml (>= 0.5.2)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
+    iso8601 (0.13.0)
     jwt (2.2.3)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -255,6 +256,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   httparty
+  iso8601
   listen (~> 3.3)
   omniauth-rails_csrf_protection
   omniauth-spotify
