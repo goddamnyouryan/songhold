@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_25_015816) do
+ActiveRecord::Schema.define(version: 2022_01_31_224834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2022_01_25_015816) do
     t.string "youtube_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "youtube_results_position", default: 0, null: false
     t.index ["playlist_id"], name: "index_tracks_on_playlist_id"
     t.index ["uid"], name: "index_tracks_on_uid"
     t.index ["youtube_id"], name: "index_tracks_on_youtube_id"

@@ -15,6 +15,8 @@ gem 'omniauth-spotify'
 gem 'omniauth-rails_csrf_protection'
 gem 'httparty'
 gem 'iso8601'
+gem 'youtube-dl.rb'
+gem 'ruby-sox'
 
 group :development, :test do
   gem 'byebug'
