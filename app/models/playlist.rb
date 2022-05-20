@@ -4,7 +4,7 @@ class Playlist < ApplicationRecord
   has_many :tracks, -> { order(position: :asc) }, dependent: :destroy
 
   def fetch_playlist
-    Interface.new(user).playlist(uid)
+    Spotify.new(user).playlist(uid)
   end
 
   def process_tracks!

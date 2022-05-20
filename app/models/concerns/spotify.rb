@@ -1,4 +1,4 @@
-class Interface
+class Spotify
   attr_accessor :user
 
   def initialize(user)

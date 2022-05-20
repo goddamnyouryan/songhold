@@ -2,7 +2,7 @@ class PlaylistsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @playlists = Interface.new(current_user).playlists
+    @playlists = Spotify.new(current_user).playlists
   end
 
   def create
@@ -12,7 +12,7 @@ class PlaylistsController < ApplicationController
   end
 
   def show
-    @playlist = Interface.new(current_user).playlist(params[:id])
+    @playlist = Spotify.new(current_user).playlist(params[:id])
     @tracks = @playlist['tracks']['items'].map {|item| item['track']}
   end
 
