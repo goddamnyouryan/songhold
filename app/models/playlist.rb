@@ -31,6 +31,14 @@ class Playlist < ApplicationRecord
   def merge_track_files!
     combiner = Sox::Combiner.new(tracks.map(&:download_path), combine: :concatenate)
     system 'mkdir', '-p', 'tmp/cache/playlists' # i guess sox is incapable of making dirs on its own
-    combiner.write("tmp/cache/playlists/#{uid}.wav")
+    combiner.write merged_track_path
+  end
+
+  def merged_file
+    File.open merged_track_path
+  end
+
+  def merged_track_path
+    "tmp/cache/playlists/#{uid}.mp3"
   end
 end

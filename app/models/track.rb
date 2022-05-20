@@ -4,12 +4,16 @@ class Track < ApplicationRecord
 
   def download!
     fetch_youtube_id! unless youtube_id?
-    return true if File.exists?(download_path)
+    return true if downloaded?
     puts "Downloading Youtube #{youtube_id}"
     download = YoutubeDL.download "https://www.youtube.com/watch?v=#{youtube_id}", youtube_dl_options
   rescue => e
     update youtube_results_position: youtube_results_position + 1, youtube_id: nil
     retry
+  end
+
+  def downloaded?
+    File.exists?(download_path)
   end
 
   def youtube_dl_options

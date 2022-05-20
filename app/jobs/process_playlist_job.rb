@@ -3,13 +3,13 @@ class ProcessPlaylistJob < ApplicationJob
 
   def perform(user_id, playlist_id)
     @playlist = Playlist.find(playlist_id)
+    @user = User.find(user_id)
+
     @playlist.process_tracks!
+    @playlist.merge_track_files!
 
-    # x pull tracks and save them in db (so we can compare later on cron job to see if we need to pull tracks again)
-    # x find youtube ids for each track (should tracks be in has and belongs to many relationship, to avoid duplicating tracks, nah probably overkill right now)
-    # download as wav or mp3 for each track
-    # combine them all into single wav
-    # upload to phone service
+    @user.upload_hold_music @playlist.merged_file
 
+    # notify user by email or something when its done
   end
 end

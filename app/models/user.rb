@@ -21,4 +21,10 @@ class User < ApplicationRecord
   def downcase_email!
     self.email = email.downcase
   end
+
+  def upload_hold_music(track)
+    provider = providers.find_by name: 'Ringcentral'
+
+    RingCentral.new(provider.token).upload_custom_greeting(track)
+  end
 end
