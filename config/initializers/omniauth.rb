@@ -1,3 +1,5 @@
+require 'omniauth/ringcentral'
+
 OmniAuth.config.logger = Rails.logger
 
 Rails.application.config.middleware.use OmniAuth::Builder do
@@ -9,4 +11,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     user-follow-modify
     user-follow-read
   ).join(' '), provider_ignores_state: true
+  provider :ringcentral, Rails.application.credentials.ringcentral[:client_id], Rails.application.credentials.ringcentral[:client_secret]
 end
