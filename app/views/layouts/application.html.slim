@@ -11,7 +11,10 @@ html
 
   body
     header
-      = link_to 'Songhold', root_path
-      - if current_user
-        = link_to 'Log Out', signout_path
-    = yield
+      .container
+        .logo = link_to 'Songhold', root_path
+        nav
+          ul
+            - if current_user
+              li = link_to 'Log Out', signout_path
+    main.container = yield

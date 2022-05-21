@@ -1,0 +1,16 @@
+li.playlist
+  = link_to playlist_path(playlist['id']) do
+    - image = playlist['images'].first
+    - if image
+      .square
+        img src="#{image['url']}"
+
+    - unless @tracks.present?
+      h3.name = playlist['name']
+
+    - if tracks.present?
+      ul.tracks
+        - tracks.each do |track|
+          li.track
+            h3.track-name = track['name']
+            h4.artist = track['artists'].first['name']

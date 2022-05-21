@@ -1,10 +1,6 @@
-h1 = current_user.uid
+h1 Nice! Everything is Connected.
+h2 Choose your Spotify Playlist below:
 
-ul
+ul.playlists
   - @playlists.each do |playlist|
-    li
-      = link_to playlist_path(playlist['id']) do
-        - image = playlist['images'].first
-        - if image
-          img src="#{image['url']}"
-        = playlist['name']
+    = render 'playlist', playlist: playlist
