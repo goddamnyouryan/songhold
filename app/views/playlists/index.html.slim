@@ -1,12 +1,10 @@
-h2 = current_user.uid
+h1 = current_user.uid
 
 ul
   - @playlists.each do |playlist|
     li
       = link_to playlist_path(playlist['id']) do
-        // - image = playlist['images'].first
-        // - if image
-        //   img src="#{image['url']}"
+        - image = playlist['images'].first
+        - if image
+          img src="#{image['url']}"
         = playlist['name']
-      = button_to 'Choose', playlists_path, method: :post, params: { uid: playlist['id'] }
-      end

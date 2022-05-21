@@ -1,6 +1,10 @@
 class ProvidersController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+
+  end
+
   def create
     @provider = Provider.from_omniauth provider_params
     redirect_to root_path, notice: 'Ringcentral connected.'

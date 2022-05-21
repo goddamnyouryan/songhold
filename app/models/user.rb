@@ -22,9 +22,11 @@ class User < ApplicationRecord
     self.email = email.downcase
   end
 
-  def upload_hold_music(track)
-    provider = providers.find_by name: 'Ringcentral'
+  def ringcentral
+    providers.find_by name: 'Ringcentral'
+  end
 
-    RingCentral.new(provider.token).upload_custom_greeting(track)
+  def upload_hold_music(track)
+    RingCentral.new(ringcentral.token).upload_custom_greeting(track)
   end
 end

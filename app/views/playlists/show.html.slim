@@ -1,7 +1,5 @@
-= button_to 'Connect Ringcentral Account', '/auth/ringcentral', method: :post
-
-h2 = @playlist['name']
-
+h1 = @playlist['name']
+= button_to 'Use This Playlist for your Ringcentral Hold Music', playlists_path, method: :post, params: { uid: @playlist['id'] }
 ul
   - @tracks.each do |track|
     li
