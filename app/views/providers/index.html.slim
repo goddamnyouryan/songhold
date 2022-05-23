@@ -1,7 +1,3 @@
-- if current_user.ringcentral.present?
-  h1 Looks like your Ringcentral connection has expired
-  h2 Please connect it again below.
-- else
-  h1 Great! Your Spotify Account is connected.
-  h2 Now Connect your Ringcentral Account
+h1 Great! Your Spotify Account is connected.
+h2 Now Connect your Ringcentral Account
 = button_to 'Connect Ringcentral Account', '/auth/ringcentral', method: :post
