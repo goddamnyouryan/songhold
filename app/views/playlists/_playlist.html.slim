@@ -1,3 +1,5 @@
+- tracks = local_assigns[:tracks]
+
 li.playlist
   = link_to playlist_path(playlist['id']) do
     - image = playlist['images'].first
@@ -5,7 +7,7 @@ li.playlist
       .square
         img src="#{image['url']}"
 
-    - unless @tracks.present?
+    - unless tracks.present?
       h3.name = playlist['name']
 
     - if tracks.present?

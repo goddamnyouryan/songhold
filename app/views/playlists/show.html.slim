@@ -1,3 +1,3 @@
 h1 = @playlist['name']
-h2 = button_to 'Use This Playlist for your Ringcentral Hold Music', playlists_path, method: :post, params: { uid: @playlist['id'] }
+h2 = button_to 'Use This Playlist as Ringcentral Hold Music', playlists_path, method: :post, params: { uid: @playlist['id'] }
 = render 'playlist', playlist: @playlist, tracks: @tracks
