@@ -27,6 +27,7 @@ class User < ApplicationRecord
   end
 
   def upload_hold_music(track)
-    RingCentral.new(ringcentral.token).upload_custom_greeting(track)
+    RingCentral.new(ringcentral.token).upload_custom_greeting('HoldMusic', track)
+    RingCentral.new(ringcentral.token).upload_custom_greeting('ConnectingAudio', track)
   end
 end

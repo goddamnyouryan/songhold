@@ -5,13 +5,13 @@ class RingCentral
     @token = token
   end
 
-  def upload_custom_greeting(track)
+  def upload_custom_greeting(type, track)
     headers = {
       'content-type': 'multipart/mixed'
     }
 
     params = {
-      type: 'HoldMusic',
+      type: type,
       binary: track
     }
 
